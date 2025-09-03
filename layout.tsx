@@ -1,0 +1,34 @@
+import type React from "react"
+import type { Metadata } from "next"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import { Inter } from "next/font/google"
+import { Suspense } from "react"
+import "./globals.css"
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
+
+export const metadata: Metadata = {
+  title: "Could Be Maria - Raw Luxury Streetwear",
+  description:
+    "Santo Domingo '97, Brooklyn Raised. Where high-end meets street culture. Luxury streetwear for those who break the rules.",
+    generator: 'v0.app'
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${inter.variable}`}>
+        <Suspense fallback={null}>{children}</Suspense>
+      </body>
+    </html>
+  )
+}
